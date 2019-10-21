@@ -10,10 +10,8 @@ def Timing(colorC, pos):
     timing = -1*(1 - colorC)*(5/2) 
     timing += pos*(5/4)
 
-    if (round(myPi.elapsedTime()) - timing)%10 == 0:
-        return True
-    else:
-		return False
+    condition = (round(myPi.elapsedTime()) - timing)%10 == 0
+    return condition
 
 # Quadrant color ############################################################################################
 def getQuadColor():
@@ -93,6 +91,7 @@ goNoGo = str(raw_input())
 
 if goNoGo.lower() == "y":
     print("Nice B) \n Please connect banana plugs to actuate.")
+    myPi.ledON(1)
     while myPi.getButtonState(1) == False: # for comp on wed
         myPi.getButtonState(1)
 
