@@ -83,7 +83,7 @@ colorC = getCenterColor(order)
 pos = getPos()
 
 # ready message ###############################################################################################
-if True: # lol add things to check for
+if True: 
     print("System Ready")
 
 print("Deploy? Y/N")
