@@ -21,14 +21,14 @@ myPi.digitalOFF(1)
 myPi.motorForward(1,255)
 
 # limit switch polling block 
-while ~ myPi.getButtonState(2)
+while ~ myPi.getButtonState(2):
 	myPi.getButtonState(2)
 
 # actuates solenoid, places ray 
 myPi.digitalON(2)
 
 # turns all actuators off 
-for i in range(1,4)
+for i in range(1,4):
 	myPi.digitalOFF(i)
 
 myPi.motorForward(1,0)
