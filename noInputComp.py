@@ -3,11 +3,18 @@ from threading import Timer
 import myPi
 import time
 
-def thisShitSlaps() :
-	myPi.motorForward(1,255)
-
 myPi.setup()
 
+
+def thisBoySlaps() :
+	myPi.motorForward(1,255)
+
+def retract() : 
+	start1 = myPi.elapsedTime()
+	while myPi.elapsedTime() - start1 < 5 : 
+		myPi.motorBackward(2,255) # each rotation pulls 1.5 ish inches of line
+	myPi.motorForward(2,0)
+	
 # ready sign
 myPi.ledON(1)
 
@@ -19,8 +26,12 @@ start = myPi.elapsedTime()
 # actuates pneumatics, deploys slides
 myPi.digitalON(1)
 
+# actuates moon arm
+myPi.motorForward(2,255)
+moonArm = Timer(5, retract())
+
 # actuates slapper arm 
-slapper = Timer(3, thisShitSlaps())
+slapper = Timer(3, thisBoySlaps())
 myPi.digitalOFF(1)
 
 
