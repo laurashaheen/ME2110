@@ -5,7 +5,6 @@ import time
 
 myPi.setup()
 
-
 def thisBoySlaps() :
 	myPi.motorForward(1,255)
 
@@ -14,7 +13,7 @@ def retract() :
 	while myPi.elapsedTime() - start1 < 5 : 
 		myPi.motorBackward(2,255) # each rotation pulls 1.5 ish inches of line
 	myPi.motorForward(2,0)
-	
+
 # ready sign
 myPi.ledON(1)
 
@@ -36,7 +35,7 @@ myPi.digitalOFF(1)
 
 
 # limit switch polling block 
-while ~ myPi.getButtonState(2) and myPi.elapsedTime() - start < 40:
+while myPi.getButtonState(2) == False and myPi.elapsedTime() - start < 40:
 	myPi.getButtonState(2)
 
 # actuates solenoid, places ray 
